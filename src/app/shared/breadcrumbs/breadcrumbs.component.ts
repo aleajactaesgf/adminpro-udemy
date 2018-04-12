@@ -24,7 +24,7 @@ export class BreadcrumbsComponent implements OnInit {
           const metaTag: MetaDefinition = {
             name: 'description',
             content: this.label
-          }
+          };
           this.meta.updateTag( metaTag );
       });
 
