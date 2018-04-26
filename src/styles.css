@@ -10,12 +10,24 @@
     width: 150px;
 }
 
+.w100 {
+    width: 100px;
+}
+
 .w70 {
     width: 70px;
 }
 
+.w50 {
+    width: 50px;
+}
+
 .img-50 {
     width: 50px;
+}
+
+.img-30 {
+    width: 30px;
 }
 
 .oculto {

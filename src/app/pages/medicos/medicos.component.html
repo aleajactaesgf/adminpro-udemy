@@ -1,0 +1,63 @@
+<!-- Buscador -->
+<div class="row animated fadeIn">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <!-- <input #input type="text" class="form-control" placeholder="Buscar usuario..."> -->
+                <div class="input-group">
+                    <div class="input-group-addon"><i class="ti-search"></i></div>
+                    <input #input (keyup)="buscarMedico( input.value )" type="text" class="form-control" placeholder="Buscar médico...">
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Tabla de resultados -->
+<div class="row animated fadeIn">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-5 text-left">
+                        <h3 class="card-title">Médicos Registrados ( <small>{{_medicoService.totalMedicos}}</small> )</h3>
+                    </div>
+                    <div class="col-md-7 text-right">
+                        <button [routerLink]="['/medico','nuevo']" type="button" class="btn btn-primary btn-rounded"><i class="fa fa-plus"></i> Crear Médico</button>
+                    </div>
+                </div>
+
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th scope="col">Foto</th>
+                            <th scope="col">Médico</th>
+                            <th scope="col">Hospital</th>
+                            <th scope="col"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let medico of medicos">
+                            <td class="w70">
+                                <img [src]="medico.img | imagen:'medicos'" class="img-50 img-circle">
+                            </td>
+                            <td class="align-middle">{{medico.nombre}}</td>
+                            <td class="align-middle">{{medico.hospital.nombre}}</td>
+                            <td class="w150 align-middle">
+                                <button [routerLink]="['/medico',medico._id]" class="btn btn-primary">
+                                  <i class="fa fa-edit"></i>
+                                </button>
+                                <button (click)="borrarMedico( medico )" class="btn btn-danger">
+                                  <i class="fa fa-trash-o"></i>
+                              </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+
+            </div>
+        </div>
+    </div>
+</div>
